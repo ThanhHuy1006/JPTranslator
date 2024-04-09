@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #212121; /* Màu nền tối */
+            color: #fff; /* Màu văn bản */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #333; /* Màu nền hộp */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Màu đổ bóng */
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #777; /* Màu viền */
+            resize: none;
+            background-color: #444; /* Màu nền ô nhập */
+            color: #fff; /* Màu văn bản trong ô nhập */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 10px;
+            color: #ccc; /* Màu văn bản kết quả */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JPTranslator</h1>
+        <textarea id="input-text" rows="4" placeholder="Nhập câu cần dịch..."></textarea>
+        <br>
+        <button onclick="translateToJapanese()">Dịch sang tiếng Nhật</button>
+        <br>
+        <p id="output-text"></p>
+    </div>
+
+    <script>
+        function translateToJapanese() {
+            const inputText = document.getElementById('input-text').value;
+            fetch(`/translate?text=${encodeURIComponent(inputText)}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output-text').innerText = data;
+                });
+        }
+    </script>
+</body>
+</html>
