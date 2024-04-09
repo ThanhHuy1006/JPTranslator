@@ -14,3 +14,4 @@ JP Translator là một ứng dụng web đơn giản được xây dựng bằn
 3. **Nhập văn bản cần dịch vào ô văn bản và nhấn nút "Dịch".**
 
 4. **Văn bản đã được dịch sẽ hiển thị bên dưới ô nhập văn bản.**
+###Tác giả: Đặng Thanh Huy
